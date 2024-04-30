@@ -5,7 +5,7 @@ version: 2.1
 #########
 orbs:
   heroku: circleci/heroku@1.0.1
-  bridgecrew: bridgecrew/checkov@1.0.5
+  bridgecrew: bridgecrew/bridgecrew@1.0.5
 
 ############
 # Workflows
@@ -73,10 +73,11 @@ jobs:
           path: test-reports/
 
       - bridgecrew/install
-      - checkov/scan:
+      - bridgecrew/scan:
           directory: .
           api-key-variable: ApplicationSecurityTestKey
           prisma-api-url: https://api2.prismacloud.io
+          workflows: null
 
   deploy:
     executor: heroku/default
