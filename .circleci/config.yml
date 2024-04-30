@@ -77,7 +77,7 @@ jobs:
           directory: .
           api-key-variable: ApplicationSecurityTestKey
           prisma-api-url: https://api2.prismacloud.io
-          workflows: null
+        workflows: null
 
   deploy:
     executor: heroku/default
