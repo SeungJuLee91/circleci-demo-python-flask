@@ -27,12 +27,7 @@ workflows:
 jobs:
   build:
     executor: checkov/default
-      steps:
-        - checkout
-        - checkov/scan:
-            directory: .
-            api-key-variable: ApplicationSecurityTestKey
-            prisma-api-url: https://api2.prismacloud.io
+
     docker:
       - image: circleci/python:3.6.2-stretch-browsers
         environment:
@@ -75,6 +70,11 @@ jobs:
           destination: tr1
       - store_test_results:
           path: test-reports/
+
+      - checkov/scan:
+          directory: .
+          api-key-variable: ApplicationSecurityTestKey
+          prisma-api-url: https://api2.prismacloud.io
 
   deploy:
     executor: heroku/default
