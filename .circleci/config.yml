@@ -72,6 +72,7 @@ jobs:
       - store_test_results:
           path: test-reports/
 
+      - bridgecrew/install
       - checkov/scan:
           directory: .
           api-key-variable: ApplicationSecurityTestKey
