@@ -4,7 +4,7 @@ version: 2.1
 # Common
 #########
 orbs:
-  heroku: circleci/heroku@1.0.1
+  bridgecrew: bridgecrew/checkov@1.0.5
 
 ############
 # Workflows
@@ -26,6 +26,13 @@ workflows:
 ##################
 jobs:
   build:
+    executor: checkov/default
+      steps:
+        - checkout
+        - checkov/scan:
+            directory: .
+            api-key-variable: ApplicationSecurityTestKey
+            prisma-api-url: https://api2.prismacloud.io
     docker:
       - image: circleci/python:3.6.2-stretch-browsers
         environment:
