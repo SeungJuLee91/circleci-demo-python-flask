@@ -27,7 +27,7 @@ workflows:
 ##################
 jobs:
   build:
-    executor: checkov/default
+    executor: bridgecrew/default
 
     docker:
       - image: circleci/python:3.6.2-stretch-browsers
