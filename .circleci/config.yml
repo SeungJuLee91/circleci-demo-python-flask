@@ -75,8 +75,8 @@ jobs:
       - bridgecrew/install
       - bridgecrew/scan:
           directory: .
-          api-key-variable: BC_API_KEY
-          prisma-api-url: https://api2.prismacloud.io
+          api-key-variable: 0b132c5e-a881-4b8a-bed5-c607f063f156
+          prisma-api-url: app.sg.prismacloud.io
         workflows: null
 
   deploy:
